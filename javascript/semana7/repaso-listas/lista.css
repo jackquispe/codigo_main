@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: helvetica;
+}
+main{
+    width: 50%;
+    margin: 0 auto;
+}
+.container__buscar{
+    display: flex;
+    flex-direction: column;
+    padding:20px 0;
+}
+.container__buscar .input__tarea{
+    padding: 8px;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+.container__buscar .btn__crear__tarea{
+    padding: 8px;
+    border-radius: 4px;
+    background-color: rgb(238, 87, 32);
+    color: white;
+    font-size: 15px;
+    border-color: rgb(238, 87, 32);
+}
+
+/*Contenedor de la respuesta*/
+.container__respuesta__tarea{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
