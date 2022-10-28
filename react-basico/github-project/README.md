@@ -6,8 +6,11 @@ Es una biblioteca de JavaScript para construir interfaces de usuario.
 
 Para crear un proyecto de ReactJS, se debe ejecutar el siguiente codigo
 ```bash
-mpx create-react-app Nombre_del_proyectp
+mpx create-react-app Nombre_del_proyecto
 
+```
+```bash
+cd nombre_Del_proyecto
 ```
 ```bash
 npm start
@@ -139,3 +142,33 @@ Tenemos 5 tipos de alertas
 -warning
 -info
 -question
+
+## Limpiando proyecto
+
+Cuanado usamos el comando  `npx create-react-app nombre_del_proyecto`
+se crean archivos innecesarios
+
+Lista de ellos
+setupTests.js ✅
+reportWebVitals.js ✅
+logo.svg ✅
+App.test.js ✅
+public/logo192.png ✅
+public/logo512.png ✅
+
+hora tenemos que tener cuidado luego de borrar estos archivos porque surgiran errores.
+
+Para arreglar el error de webVitas solo debemos borrar la linea de import y el uso de la funcion en el archivo index.js
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
