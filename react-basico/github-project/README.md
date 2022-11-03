@@ -6,7 +6,7 @@ Es una biblioteca de JavaScript para construir interfaces de usuario.
 
 Para crear un proyecto de ReactJS, se debe ejecutar el siguiente codigo
 ```bash
-mpx create-react-app Nombre_del_proyecto
+npx create-react-app Nombre_del_proyecto
 
 ```
 ```bash
