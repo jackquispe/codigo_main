@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const Login = () => {
+  const { login, isAuth } = useContext(AuthContext);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-
-  const history = useNavigate();
-
 
   const handleInputChange = (e) => {
     setUser({
@@ -29,23 +29,21 @@ const Login = () => {
       });
       return;
     }
-    localStorage.setItem("user", JSON.stringify(user));
-    validateIsLogged();
+    //* Entonces si ambos campos estan llenos vamos a guardarlos en localStorage
+    const inicio = login(user.email, user.password);
 
-  };
-
-  const validateIsLogged = () => {
-    const user =JSON.parse( localStorage.getItem("user"));
-    console.log(user);
-    if(user){
-        //si user no es null, deberiamso enviarlo  ala lista de tareas
-        history("/");
+    if (!inicio) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Usuario o password erroneos",
+      });
     }
   };
 
-  useEffect (()=>{
-    validateIsLogged();
-  }, []);
+  if (isAuth()) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="bg__login">
